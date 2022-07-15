@@ -5,6 +5,10 @@
 #include "./contracts/utils/HashMap.huff"
 
 /* Interface */
+#define event TransferSingle(address, address, address, uint256, uint256)
+#define event TransferBatch(address, address, address, uint256, uint256)    /* Since these last two uints are actually uint256[] should I change to that?
+#define event ApprovalForAll(address, address, bool)
+#define event URI(string, uint256)
 
 /* Event Signatures */
 
