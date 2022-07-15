@@ -10,11 +10,22 @@
 #define event ApprovalForAll(address, address, bool)
 #define event URI(string, uint256)
 
+#define function safeTransferFrom(address, address, uint256, uint256, bytes)
+
 /* Event Signatures */
 
 /* Storage Slots */
 
 /* Constructor  */
+
+/* View Functions */
+
+/* External Functions */
+  /* Transfer Functions */
+#define macro SAFE_TRANSFER_FROM() = takes(0) returns (0) {
+    0x00 0x00 revert
+}  
+
 
 /* Accounting Functions */
 
