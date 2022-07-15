@@ -25,6 +25,10 @@
 /* Storage Slots */
 
 /* Constructor  */
+#define macro CONSTRUCTOR() = takes(0) returns (0) {
+    // Set msg.sender as the owner of the contract.
+    OWNABLE_CONSTRUCTOR()
+}
 
 /* View Functions */
 
