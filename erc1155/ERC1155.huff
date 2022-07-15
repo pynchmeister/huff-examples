@@ -1,0 +1,22 @@
+/* Imports */
+#include "./contracts/utils/Ownable.huff"
+#include "./contracts/utils/Address.huff"
+#include "./contracts/utils/Utils.huff"
+#include "./contracts/utils/HashMap.huff"
+
+/* Interface */
+
+/* Event Signatures */
+
+/* Storage Slots */
+
+/* Constructor  */
+
+/* Accounting Functions */
+
+/* Transfer Functions */
+
+/* Mint Functions */
+
+/* Main Macro */
+
