@@ -21,8 +21,11 @@
 #define isApprovedForAll(address, address) view returns (bool);
 
 /* Event Signatures */
+#define constant APPROVAL_FOR_ALL_EVENT_SIGNATURE =     // @TODO
 
 /* Storage Slots */
+#define constant BALANCE_LOCATION = FREE_STORAGE_POINTER()  // balanceOf
+#define constant BALANCE_OF_BATCH_LOCATION = FREE_STORAGE_POINTER()  // balanceOfBatch (@dev may need to be eliminated )
 
 /* Constructor  */
 #define macro CONSTRUCTOR() = takes(0) returns (0) {
