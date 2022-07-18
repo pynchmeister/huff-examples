@@ -49,6 +49,15 @@
     // @TODO
 }
 
+#define macro IS_APPROVED_FOR_ALL() = takes (0) returns (0) {
+    0x24 calldataload               // [to] @info took this from 721 implementation...dont completely grasp the reason behind it
+    0x04 calldataload               // [from, to]
+    LOAD_ELEMENT_FROM_KEYS(0x00)    // [value]  
+    
+    0x00 mstore
+    0x20 0x00 return
+}
+
 /* External Functions */
 
 #define macro SET_APPROVAL_FOR_ALL() = takes(0) returns (0) {
