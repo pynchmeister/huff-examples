@@ -102,4 +102,31 @@
 /* Mint Functions */
 
 /* Main Macro */
+#define macro MAIN() = takes(0) returns (0) {
+    // Identify which function is being called.
+    0x00 calldataload 0xE0 shr                  // @dev assuming this is incorrect, I took it from the 721 implementation
+    // @dev must replace all the hashes below, they are just placeholders for now 
+    dup1 0xa9059cbb eq safeTransferFrom jumpi
+    dup1 0x42842e0e eq safeBatchTransferFrom jumpi
+    dup1 0x095ea7b3 eq setApprovalForAll jumpi
+    dup1 0x70a08231 eq balanceOf jumpi
+    dup1 0x6352211e eq balanceOfBatch jumpi
+    // dup1 0x01ffc9a7 eq supportsInterface jumpi
+    dup1 0xe985e9c5 eq isApprovedForAll jumpi
+    
+    
+    safeTransferFrom:
+        SAFE_TRANSFER_FROM()        // @dev not yet implemented
+    safeBatchTransferFrom:
+        SAFE_BATCH_TRANSFER_FROM()  // @dev not yet implemented
+    setApprovalForAll:
+        SET_APPROVAL_FOR_ALL()
+    balanceOf:
+        BALANCE_OF()
+    balanceOfBatch:
+        BALANCE_OF_BATCH()
+    isApprovedForAll:
+        IS_APPROVED_FOR_ALL()
+
+}
 
