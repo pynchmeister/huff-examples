@@ -68,14 +68,36 @@
 #define macro SAFE_TRANSFER_FROM() = takes(0) returns (0) {
     0x00 0x00 revert
 }  
+
 #define macro SAFE_BATCH_TRANSFER_FROM() = takes(0) returns (0) {
     0x00 0x00 revert
+}
+
+#define macro SET_APPROVAL_FOR_ALL() = takes (0) returns (0) {
+    0x24 calldataload                       // [approved]
+    0x04 calldataload                       // [operator, approved]
+    caller                                  // [msg.sender, operator, approved]
+    
+    STORE_ELEMENT_FROM_KEYS(0x00)           // []       // @dev is this valid?
+    
+    0x04 calldataload                       // [operator]
+    caller                                  // [msg.sender, operator]
+    0x24 calldataload                       // [approved, msg.sender, operator]
+    // emit the approval event 
+    0x00 mstore                             // [owner, operator]
+    [APPROVAL_FOR_ALL_EVENT_SIGNATURE]      // [sig, owner, operator]
+    0x00 0x00                               // [0, 32, sig, owner, operator]
+    log4                                    // []
+    
+    stop
+    error:
+        0x00 0x00 revert 
 }
 
 
 /* Accounting Functions */
 
-/* Transfer Functions */
+/* Transfer Functions */        // may want to move this above to be under 'external functions'
 
 /* Mint Functions */
 
