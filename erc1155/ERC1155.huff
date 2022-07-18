@@ -32,7 +32,26 @@
 
 /* View Functions */
 
+// the function below is taken from 721 implementation
+
+#define macro BALANCE_OF() = takes(0) returns (0) {
+    0x04 calldataload                                   // [account]
+    [BALANCE_LOCATION] LOAD_ELEMENT_FROM_KEYS(0x00)     // [balance]
+    0x00 mstore                                         // []
+    0x20 0x00 return                                    // []
+
+}
+
+#define macro BALANCE_OF_BATCH() = takes(0) returns (0) {
+    // @TODO
+}
+
 /* External Functions */
+
+#define macro SET_APPROVAL_FOR_ALL() = takes(0) returns (0) {
+    0x00 0x00 revert
+}
+
   /* Transfer Functions */
 #define macro SAFE_TRANSFER_FROM() = takes(0) returns (0) {
     0x00 0x00 revert
